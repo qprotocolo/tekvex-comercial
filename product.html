@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Product — TekVex Labs</title>
+  <meta id="meta-description" name="description" content="Technical digital labs from TekVex Labs." />
+  <link id="canonical-link" rel="canonical" href="https://tekvexloja.com/product.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TekVex" />
+  <meta id="og-title-tag" property="og:title" content="TekVex Labs" />
+  <meta id="og-desc-tag" property="og:description" content="Technical digital labs from TekVex Labs." />
+  <meta id="og-url-tag" property="og:url" content="https://tekvexloja.com/product.html" />
+  <meta property="og:image" content="https://tekvexloja.com/assets/og-cover.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="twitter-title-tag" name="twitter:title" content="TekVex Labs" />
+  <meta id="twitter-desc-tag" name="twitter:description" content="Technical digital labs from TekVex Labs." />
+  <meta name="twitter:image" content="https://tekvexloja.com/assets/og-cover.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* Page-specific additions kept local since they only apply to this template */
+    .breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--fog-dim);
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+    }
+    .breadcrumb a { color: var(--fog); }
+    .breadcrumb a:hover { color: var(--paper); }
+
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-8);
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: var(--space-16);
+      margin-bottom: var(--space-16);
+    }
+    .product-hero-side {
+      padding: var(--space-6);
+      min-width: 220px;
+    }
+    .product-hero-side .product-price { font-size: 1.6rem; display: block; margin-bottom: var(--space-4); }
+    .product-hero-side .btn { margin-bottom: var(--space-3); }
+
+    .learn-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .learn-card { padding: var(--space-6); }
+    .learn-card h3 { font-size: 1.05rem; margin-bottom: var(--space-2); }
+    .learn-card p { font-size: 0.88rem; }
+
+    .included-list, .requirements-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .included-list li, .requirements-list li {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      font-size: 0.95rem;
+      color: var(--fog);
+    }
+    .included-list li::before, .requirements-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background-color: var(--signal);
+      flex-shrink: 0;
+      transform: translateY(-2px);
+    }
+
+    .two-col { grid-template-columns: 1fr 1fr; align-items: start; }
+
+    .faq-item {
+      padding: var(--space-6);
+      margin-bottom: var(--space-4);
+    }
+    .faq-item h3 { font-size: 1rem; margin-bottom: var(--space-2); }
+    .faq-item p { font-size: 0.92rem; }
+
+    .final-cta {
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+    }
+    .final-cta h2 { margin-bottom: var(--space-6); }
+
+    .not-found { padding: var(--space-16) 0; text-align: center; }
+    .not-found h1 { margin-bottom: var(--space-4); }
+
+    @media (max-width: 780px) {
+      .product-hero-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="TekVex home">
+        TekVex <span class="brand-suffix">Labs</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="products.html" class="btn btn-secondary">Explore Products</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav id="nav-mobile" class="nav-mobile" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="products.html" class="btn btn-primary btn-block" style="margin-top: 0.5rem">Explore Products</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="container" style="padding-top: calc(var(--header-height) + var(--space-12))">
+      <nav class="breadcrumb" aria-label="Breadcrumb" id="breadcrumb">
+        <a href="index.html">Home</a> / <a href="products.html">Products</a> / <span id="breadcrumb-current">Product</span>
+      </nav>
+    </div>
+
+    <!-- Rendered by js/product.js once the product is resolved from ?slug= -->
+    <div id="product-root" class="container"></div>
+
+    <!-- Shown instead of #product-root if the slug does not match any product -->
+    <div id="not-found" class="container not-found" hidden>
+      <h1>Product not found</h1>
+      <p class="lede" style="margin-inline:auto">This product may have been renamed or is no longer available.</p>
+      <a href="products.html" class="btn btn-primary" style="margin-top: var(--space-8)">Back to Products</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">TekVex <span class="brand-suffix">Labs</span></a>
+          <p>Technical products for people who want to understand systems deeply.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-current-year>2026</span> TekVex. All rights reserved.</p>
+        <p class="mono-label">TEKVEXLOJA.COM</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-fab" data-whatsapp-trigger aria-label="Contact TekVex on WhatsApp">
+    <span class="dot" aria-hidden="true"></span>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

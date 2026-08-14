@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — TekVex Labs</title>
+  <meta
+    name="description"
+    content="Browse TekVex Labs technical products: practical digital laboratories in cybersecurity, Qubes OS, Linux, privacy and low-level programming."
+  />
+  <link rel="canonical" href="https://tekvexloja.com/products.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TekVex" />
+  <meta property="og:title" content="Products — TekVex Labs" />
+  <meta
+    property="og:description"
+    content="Practical digital laboratories in cybersecurity, Qubes OS, Linux, privacy and low-level programming."
+  />
+  <meta property="og:url" content="https://tekvexloja.com/products.html" />
+  <meta property="og:image" content="https://tekvexloja.com/assets/og-cover.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Products — TekVex Labs" />
+  <meta
+    name="twitter:description"
+    content="Practical digital laboratories in cybersecurity, Qubes OS, Linux, privacy and low-level programming."
+  />
+  <meta name="twitter:image" content="https://tekvexloja.com/assets/og-cover.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="TekVex home">
+        TekVex <span class="brand-suffix">Labs</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="products.html" class="btn btn-secondary">Explore Products</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav id="nav-mobile" class="nav-mobile" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="products.html" class="btn btn-primary btn-block" style="margin-top: 0.5rem">Explore Products</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" style="padding-bottom: var(--space-16)">
+      <div class="container">
+        <span class="mono-label mono-label--accent">TEKVEX LABS / CATALOG</span>
+        <h1 style="margin-top: var(--space-4)">Technical Products</h1>
+        <p class="lede" style="margin-top: var(--space-6)">
+          Practical resources designed to turn complex concepts into structured, hands-on knowledge. Each lab is a
+          self-contained, practical resource — not a video course, not a subscription.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="grid product-grid" id="product-grid-full">
+          <!-- Populated from js/products.js at runtime -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">TekVex <span class="brand-suffix">Labs</span></a>
+          <p>Technical products for people who want to understand systems deeply.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-current-year>2026</span> TekVex. All rights reserved.</p>
+        <p class="mono-label">TEKVEXLOJA.COM</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-fab" data-whatsapp-trigger aria-label="Contact TekVex on WhatsApp">
+    <span class="dot" aria-hidden="true"></span>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      function renderFullGrid() {
+        const grid = document.getElementById("product-grid-full");
+        if (!grid || typeof TEKVEX_PRODUCTS === "undefined") return;
+
+        grid.innerHTML = TEKVEX_PRODUCTS.map(function (product) {
+          return (
+            '<article class="bracket-frame product-card">' +
+            '<span class="corner tl" aria-hidden="true"></span>' +
+            '<span class="corner tr" aria-hidden="true"></span>' +
+            '<span class="corner bl" aria-hidden="true"></span>' +
+            '<span class="corner br" aria-hidden="true"></span>' +
+            '<div class="product-card-top">' +
+            '<span class="mono-label mono-label--accent">' + product.category + "</span>" +
+            "</div>" +
+            "<h3>" + product.name + "</h3>" +
+            "<p>" + product.shortDescription + "</p>" +
+            '<div class="product-card-meta">' +
+            '<span class="product-price">' + product.price + "</span>" +
+            '<span class="product-level">' + product.level + "</span>" +
+            "</div>" +
+            '<a href="product.html?slug=' + product.slug + '" class="btn btn-secondary btn-block" style="margin-top:0.75rem" data-track-view="' + product.id + '">View Product</a>' +
+            "</article>"
+          );
+        }).join("");
+
+        grid.querySelectorAll("[data-track-view]").forEach(function (link) {
+          link.addEventListener("click", function () {
+            window.TekVexAnalytics.trackEvent("view_product", { id: link.getAttribute("data-track-view") });
+          });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", renderFullGrid);
+    })();
+  </script>
+</body>
+</html>
