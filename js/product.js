@@ -51,7 +51,7 @@
     const root = document.getElementById("product-root");
 
     // --- Hero -------------------------------------------------------------
-    const checkoutDisabled = !product.stripeCheckoutUrl || product.stripeCheckoutUrl === "STRIPE_CHECKOUT_URL_HERE";
+    const checkoutDisabled = !product.checkoutUrl;
     const heroHtml =
       '<div class="product-hero-grid">' +
       "<div>" +
@@ -64,9 +64,9 @@
           product.price +
           "</span>" +
           '<a href="' +
-          product.stripeCheckoutUrl +
+          product.checkoutUrl +
           '" class="btn btn-primary btn-block" data-checkout-url="' +
-          product.stripeCheckoutUrl +
+          product.checkoutUrl +
           '" target="_blank" rel="noopener noreferrer">Get Access</a>' +
           '<span class="mono-label" style="display:block; margin-top: var(--space-4)">LEVEL: ' +
           product.level +
@@ -145,9 +145,9 @@
     const finalCtaHtml = bracketFrame(
       "<h2>Start Building Your Lab</h2>" +
         '<a href="' +
-        product.stripeCheckoutUrl +
+        product.checkoutUrl +
         '" class="btn btn-primary" data-checkout-url="' +
-        product.stripeCheckoutUrl +
+        product.checkoutUrl +
         '" target="_blank" rel="noopener noreferrer">Get Access</a>',
       "final-cta"
     );
@@ -157,7 +157,7 @@
     // Re-bind checkout buttons rendered dynamically above
     root.querySelectorAll("[data-checkout-url]").forEach(function (btn) {
       const url = btn.getAttribute("data-checkout-url");
-      if (!url || url === "STRIPE_CHECKOUT_URL_HERE") {
+      if (!url) {
         btn.setAttribute("aria-disabled", "true");
         btn.setAttribute("title", "Checkout not yet configured");
         btn.addEventListener("click", function (event) {

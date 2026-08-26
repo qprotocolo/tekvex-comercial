@@ -8,12 +8,12 @@
  * without a build step.
  *
  * STRIPE INTEGRATION (IMPORTANT — READ BEFORE EDITING):
- * Each product has a `stripeCheckoutUrl` field. This is a PLACEHOLDER.
+ * * Each product has a `checkoutUrl` field for the product's purchase page.
  * - Do NOT put Stripe secret keys anywhere in this file or in any frontend file.
  * - Do NOT build a custom card form. All payment collection happens on
  *   Stripe's own hosted Checkout page.
  * - When a real Stripe Payment Link / Checkout Session URL exists for a
- *   product, replace the string "STRIPE_CHECKOUT_URL_HERE" with that URL.
+ *  * product, set the `checkoutUrl` field to the appropriate purchase URL.
  *   Nothing else needs to change — every "Get Access" / "View Product"
  *   button reads from this field automatically.
  */
@@ -89,7 +89,7 @@ const TEKVEX_PRODUCTS = [
         a: "No. It's a written technical guide and lab, designed to be followed at your own pace and referenced later.",
       },
     ],
-    stripeCheckoutUrl: "STRIPE_CHECKOUT_URL_HERE",
+    checkoutUrl: "https://payhip.com/b/gsdq6",
   },
   {
     id: "linux-security",
