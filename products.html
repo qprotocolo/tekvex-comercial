@@ -132,46 +132,7 @@
     <span>WhatsApp</span>
   </a>
 
-  <script src="js/products.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    (function () {
-      "use strict";
-
-      function renderFullGrid() {
-        const grid = document.getElementById("product-grid-full");
-        if (!grid || typeof TEKVEX_PRODUCTS === "undefined") return;
-
-        grid.innerHTML = TEKVEX_PRODUCTS.map(function (product) {
-          return (
-            '<article class="bracket-frame product-card">' +
-            '<span class="corner tl" aria-hidden="true"></span>' +
-            '<span class="corner tr" aria-hidden="true"></span>' +
-            '<span class="corner bl" aria-hidden="true"></span>' +
-            '<span class="corner br" aria-hidden="true"></span>' +
-            '<div class="product-card-top">' +
-            '<span class="mono-label mono-label--accent">' + product.category + "</span>" +
-            "</div>" +
-            "<h3>" + product.name + "</h3>" +
-            "<p>" + product.shortDescription + "</p>" +
-            '<div class="product-card-meta">' +
-            '<span class="product-price">' + product.price + "</span>" +
-            '<span class="product-level">' + product.level + "</span>" +
-            "</div>" +
-            '<a href="product.html?slug=' + product.slug + '" class="btn btn-secondary btn-block" style="margin-top:0.75rem" data-track-view="' + product.id + '">View Product</a>' +
-            "</article>"
-          );
-        }).join("");
-
-        grid.querySelectorAll("[data-track-view]").forEach(function (link) {
-          link.addEventListener("click", function () {
-            window.TekVexAnalytics.trackEvent("view_product", { id: link.getAttribute("data-track-view") });
-          });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", renderFullGrid);
-    })();
-  </script>
-</body>
+  <script src="js/products.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/catalog.js" defer></script></body>
 </html>
