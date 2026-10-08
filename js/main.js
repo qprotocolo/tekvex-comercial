@@ -24,6 +24,20 @@
   // (format: https://wa.me/<countrycode+number>) when available.
   const WHATSAPP_URL = "WHATSAPP_URL_HERE";
 
+  const TRUSTED_CHECKOUT_HOSTS = new Set(["payhip.com", "www.payhip.com", "checkout.stripe.com", "buy.stripe.com"]);
+
+  function getSafeCheckoutUrl(value) {
+    if (typeof value !== "string" || !value || value === "STRIPE_CHECKOUT_URL_HERE") return "";
+    try {
+      const url = new URL(value, SITE_URL);
+      if (url.protocol !== "https:") return "";
+      if (!TRUSTED_CHECKOUT_HOSTS.has(url.hostname.toLowerCase())) return "";
+      return url.href;
+    } catch (error) {
+      return "";
+    }
+  }
+
   /* ---------------------------------------------------------------------
    * ANALYTICS STUBS
    * Centralized event tracking function. Currently logs to the console
@@ -155,7 +169,7 @@
     if (!buttons.length) return;
 
     buttons.forEach(function (button) {
-      const url = button.getAttribute("data-checkout-url");
+      const url = getSafeCheckoutUrl(button.getAttribute("data-checkout-url"));
 
       if (!url || url === "STRIPE_CHECKOUT_URL_HERE") {
         button.setAttribute("aria-disabled", "true");
@@ -193,5 +207,5 @@
   });
 
   // Exposed for reuse on other pages (e.g. products.html, product template)
-  window.TekVexSite = { SITE_URL: SITE_URL };
+  window.TekVexSite = { SITE_URL: SITE_URL, getSafeCheckoutUrl: getSafeCheckoutUrl };
 })();
