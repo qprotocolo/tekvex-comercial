@@ -18,7 +18,7 @@
    * here. It is used only for future dynamic canonical/OG generation and
    * does not need to match anything today unless you wire it up.
    * ------------------------------------------------------------------- */
-  const SITE_URL = "https://tekvexloja.com";
+  const SITE_URL = "https://www.tekvexloja.com";
 
   // Placeholder — replace with the real WhatsApp business link
   // (format: https://wa.me/<countrycode+number>) when available.
@@ -146,8 +146,28 @@
     const triggers = document.querySelectorAll("[data-whatsapp-trigger]");
     if (!triggers.length) return;
 
+    const safeWhatsAppUrl = (() => {
+      if (WHATSAPP_URL === "WHATSAPP_URL_HERE") return "";
+      try {
+        const url = new URL(WHATSAPP_URL);
+        if (url.protocol !== "https:" || url.hostname.toLowerCase() !== "wa.me") return "";
+        return url.href;
+      } catch (error) {
+        return "";
+      }
+    })();
+
     triggers.forEach(function (trigger) {
-      trigger.setAttribute("href", WHATSAPP_URL);
+      if (!safeWhatsAppUrl) {
+        trigger.setAttribute("aria-disabled", "true");
+        trigger.setAttribute("title", "WhatsApp contact not yet configured");
+        trigger.addEventListener("click", function (event) {
+          event.preventDefault();
+        });
+        return;
+      }
+
+      trigger.setAttribute("href", safeWhatsAppUrl);
       trigger.setAttribute("target", "_blank");
       trigger.setAttribute("rel", "noopener noreferrer");
 
