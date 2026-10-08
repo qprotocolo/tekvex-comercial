@@ -34,9 +34,9 @@
   }
 
   function setMeta(product) {
-    const title = escapeHtml(product.name) + " — TekVex Labs";
+    const title = product.name + " — TekVex Labs";
     const description = product.shortDescription;
-    const url = "https://tekvexloja.com/product.html?slug=" + product.slug;
+    const url = "https://tekvexloja.com/product.html?slug=" + encodeURIComponent(product.slug);
 
     document.getElementById("page-title").textContent = title;
     document.getElementById("meta-description").setAttribute("content", description);
@@ -79,12 +79,12 @@
           escapeHtml(product.price) +
           "</span>" +
           '<a href="' +
-          escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
+          escapeHtml(checkoutUrl) +
           '" class="btn btn-primary btn-block" data-checkout-url="' +
-          escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
+          escapeHtml(checkoutUrl) +
           '" target="_blank" rel="noopener noreferrer">Get Access</a>' +
           '<span class="mono-label" style="display:block; margin-top: var(--space-4)">LEVEL: ' +
-          product.level +
+          escapeHtml(product.level) +
           "</span>",
         "product-hero-side"
       ) +
@@ -117,7 +117,7 @@
 
     const requirementsHtml = product.requirements
       .map(function (item) {
-        return "<li>" + item + "</li>";
+        return "<li>" + escapeHtml(item) + "</li>";
       })
       .join("");
 
@@ -139,7 +139,7 @@
       "</div>" +
       '<div style="margin-top: var(--space-16)">' +
       '<div class="section-header"><span class="mono-label">WHO IT\'S FOR</span></div>' +
-      "<p class=\"lede\">" + product.audience + "</p>" +
+      "<p class=\"lede\">" + escapeHtml(product.audience) + "</p>" +
       "</div>" +
       "</section>";
 
@@ -160,7 +160,7 @@
     const finalCtaHtml = bracketFrame(
       "<h2>Start Building Your Lab</h2>" +
         '<a href="' +
-        escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
+        escapeHtml(checkoutUrl) +
         '" class="btn btn-primary" data-checkout-url="' +
         escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
         '" target="_blank" rel="noopener noreferrer">Get Access</a>',
