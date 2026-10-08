@@ -131,7 +131,7 @@ const TEKVEX_PRODUCTS = [
         a: "The core concepts apply across distributions; examples are shown on widely-used systems and noted where behavior differs.",
       },
     ],
-    stripeCheckoutUrl: "STRIPE_CHECKOUT_URL_HERE",
+    checkoutUrl: "STRIPE_CHECKOUT_URL_HERE",
   },
   {
     id: "cybersecurity-foundations",
@@ -162,7 +162,7 @@ const TEKVEX_PRODUCTS = [
         a: "No. This is a self-paced technical resource, not a certification or accredited course.",
       },
     ],
-    stripeCheckoutUrl: "STRIPE_CHECKOUT_URL_HERE",
+    checkoutUrl: "STRIPE_CHECKOUT_URL_HERE",
   },
   {
     id: "c-lowlevel",
@@ -194,7 +194,7 @@ const TEKVEX_PRODUCTS = [
         a: "No. You need general programming experience; C fundamentals are taught from the ground up in the context of the low-level concepts.",
       },
     ],
-    stripeCheckoutUrl: "STRIPE_CHECKOUT_URL_HERE",
+    checkoutUrl: "STRIPE_CHECKOUT_URL_HERE",
   },
 ];
 
