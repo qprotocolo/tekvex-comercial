@@ -14,13 +14,27 @@
 (function () {
   "use strict";
 
+  function escapeHtml(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function safeCheckoutUrl(value) {
+    if (!window.TekVexSite || typeof window.TekVexSite.getSafeCheckoutUrl !== "function") return "";
+    return window.TekVexSite.getSafeCheckoutUrl(value);
+  }
+
   function getSlugFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get("slug");
   }
 
   function setMeta(product) {
-    const title = product.name + " — TekVex Labs";
+    const title = escapeHtml(product.name) + " — TekVex Labs";
     const description = product.shortDescription;
     const url = "https://tekvexloja.com/product.html?slug=" + product.slug;
 
@@ -51,22 +65,23 @@
     const root = document.getElementById("product-root");
 
     // --- Hero -------------------------------------------------------------
-    const checkoutDisabled = !product.checkoutUrl;
+    const checkoutUrl = safeCheckoutUrl(product.checkoutUrl);
+    const checkoutDisabled = !checkoutUrl;
     const heroHtml =
       '<div class="product-hero-grid">' +
       "<div>" +
-      '<span class="mono-label mono-label--accent">' + product.category + "</span>" +
-      "<h1 style=\"margin-top: var(--space-4)\">" + product.name + "</h1>" +
-      '<p class="lede" style="margin-top: var(--space-6)">' + product.description + "</p>" +
+      '<span class="mono-label mono-label--accent">' + escapeHtml(product.category) + "</span>" +
+      "<h1 style=\"margin-top: var(--space-4)\">" + escapeHtml(product.name) + "</h1>" +
+      '<p class="lede" style="margin-top: var(--space-6)">' + escapeHtml(product.description) + "</p>" +
       "</div>" +
       bracketFrame(
         '<span class="product-price">' +
-          product.price +
+          escapeHtml(product.price) +
           "</span>" +
           '<a href="' +
-          product.checkoutUrl +
+          escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
           '" class="btn btn-primary btn-block" data-checkout-url="' +
-          product.checkoutUrl +
+          escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
           '" target="_blank" rel="noopener noreferrer">Get Access</a>' +
           '<span class="mono-label" style="display:block; margin-top: var(--space-4)">LEVEL: ' +
           product.level +
@@ -79,7 +94,7 @@
     const learnCardsHtml = product.learn
       .map(function (item) {
         return bracketFrame(
-          "<h3>" + item.title + "</h3><p>" + item.detail + "</p>",
+          "<h3>" + escapeHtml(item.title) + "</h3><p>" + escapeHtml(item.detail) + "</p>",
           "learn-card"
         );
       })
@@ -96,7 +111,7 @@
     // --- Included / Audience & Requirements (two-column) --------------------
     const includedHtml = product.included
       .map(function (item) {
-        return "<li>" + item + "</li>";
+        return "<li>" + escapeHtml(item) + "</li>";
       })
       .join("");
 
@@ -131,7 +146,7 @@
     // --- FAQ ------------------------------------------------------------
     const faqHtml = product.faq
       .map(function (item) {
-        return bracketFrame("<h3>" + item.q + "</h3><p>" + item.a + "</p>", "faq-item");
+        return bracketFrame("<h3>" + escapeHtml(item.q) + "</h3><p>" + escapeHtml(item.a) + "</p>", "faq-item");
       })
       .join("");
 
@@ -145,9 +160,9 @@
     const finalCtaHtml = bracketFrame(
       "<h2>Start Building Your Lab</h2>" +
         '<a href="' +
-        product.checkoutUrl +
+        escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
         '" class="btn btn-primary" data-checkout-url="' +
-        product.checkoutUrl +
+        escapeHtml(safeCheckoutUrl(product.checkoutUrl)) +
         '" target="_blank" rel="noopener noreferrer">Get Access</a>',
       "final-cta"
     );
@@ -165,7 +180,7 @@
         });
       } else {
         btn.addEventListener("click", function () {
-          window.TekVexAnalytics.trackEvent("checkout_redirect", { url: url, product: product.id });
+          window.TekVexAnalytics.trackEvent("checkout_redirect", { product: product.id });
         });
       }
     });
