@@ -3,7 +3,6 @@
 <head>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=()">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -204,8 +203,8 @@
     <span>WhatsApp</span>
   </a>
 
-  <script src="js/products.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/product.js"></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/product.js" defer></script>
 </body>
 </html>
