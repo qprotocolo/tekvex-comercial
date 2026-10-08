@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TekVex">
+  <rect width="64" height="64" rx="12" fill="#07110d"/>
+  <path d="M16 16h32v8H36v24h-8V24H16z" fill="#54e38e"/>
+  <path d="M42 32h8v16h-8z" fill="#54e38e"/>
+</svg>

@@ -36,7 +36,7 @@
   function setMeta(product) {
     const title = product.name + " — TekVex Labs";
     const description = product.shortDescription;
-    const url = "https://tekvexloja.com/product.html?slug=" + encodeURIComponent(product.slug);
+    const url = "https://www.tekvexloja.com/product.html?slug=" + encodeURIComponent(product.slug);
 
     document.getElementById("page-title").textContent = title;
     document.getElementById("meta-description").setAttribute("content", description);

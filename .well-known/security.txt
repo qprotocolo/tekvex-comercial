@@ -1,0 +1,3 @@
+Contact: https://github.com/qprotocolo/tekvex-comercial/security
+Preferred-Languages: pt-BR, en
+Canonical: https://www.tekvexloja.com/.well-known/security.txt
